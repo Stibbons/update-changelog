@@ -5,9 +5,22 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-v = open(os.path.join(os.path.dirname(__file__), 'updatechangelog', 'version.py'))
-VERSION = re.compile(r".*__version__ = '(.*?)'", re.S).match(v.read()).group(1)
+v = open(
+    os.path.join(os.path.dirname(__file__), 'src', 'updatechangelog', 'version.py'))
+
+vc = v.read()
+VERSION_MAJOR = None
+VERSION_MINOR = None
+VERSION_BUILD = None
+
+print "=>", re.compile(r"VERSION_MAJOR = (.*)$", re.M).match(vc).group(1)
+#
+VERSION_MAJOR = re.compile(r".*VERSION_MAJOR = '(.*?)'", re.S).match(vc).group(1)
+VERSION_MINOR = re.compile(r".*VERSION_MINOR = '(.*?)'", re.S).match(vc).group(1)
+VERSION_BUILD = re.compile(r".*VERSION_BUILD = '(.*?)'", re.S).match(vc).group(1)
 v.close()
+
+print "VERSION_BUILD",VERSION_BUILD
 
 
 readme = os.path.join(os.path.dirname(__file__), 'README.rst')
@@ -42,5 +55,4 @@ setup(name='updatechangelog',
       install_requires=requires,
       entry_points={
           'update-changelog': ['updatechangelog = updatechangelog.main:main'],
-      }
-      )
+      })
