@@ -2,6 +2,7 @@ import sys
 
 
 class UpdateChangeLog(object):
+
     def run(self):
         pass
 

@@ -132,12 +132,12 @@ $RES || warning "some import fixes failed -- not enforcing for now"
 status "running autopep8"
 if [[ -z `which autopep8` ]]; then
     warning "autopep8 is not installed"
-elif [[ ! -f pep8rc ]]; then
-    warning "pep8rc not found"
+elif [[ ! -f .pep8rc ]]; then
+    warning ".pep8rc not found"
 else
     changes_made=false
     for filename in ${py_files[@]}; do
-        LINEWIDTH=$(grep -E "max-line-length" pep8rc | sed 's/ //g' | cut -d'=' -f 2)
+        LINEWIDTH=$(grep -E "max-line-length" .pep8rc | sed 's/ //g' | cut -d'=' -f 2)
         # even if we dont enforce errors, if they can be fixed automatically, thats better..
         IGNORES=E501,W6
         # ignore is not None for SQLAlchemy code..
@@ -157,12 +157,12 @@ fi
 status "running pep8"
 if [[ -z `which pep8` ]]; then
     warning "pep8 is not installed"
-elif [[ ! -f pep8rc ]]; then
-    warning "pep8rc not found"
+elif [[ ! -f .pep8rc ]]; then
+    warning ".pep8rc not found"
 else
     pep8_ok=true
     for filename in ${py_files[@]}; do
-        if ! pep8 --config=pep8rc "$filename"; then
+        if ! pep8 --config=.pep8rc "$filename"; then
             pep8_ok=false
         fi
     done
@@ -186,12 +186,12 @@ fi
 status "running pylint"
 if [[ -z `which pylint` ]]; then
     warning "pylint is not installed"
-elif [[ ! -f pylintrc ]]; then
-    warning "pylintrc not found"
+elif [[ ! -f .pylintrc ]]; then
+    warning ".pylintrc not found"
 else
     pylint_ok=true
     for filename in ${py_files[@]}; do
-        if ! pylint --rcfile=pylintrc --disable=R,line-too-long --enable=W0611 --output-format=text --report=no "$filename"; then
+        if ! pylint --rcfile=.pylintrc --disable=R,line-too-long --enable=W0611 --output-format=text --report=no "$filename"; then
             pylint_ok=false
         fi
     done

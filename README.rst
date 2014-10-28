@@ -61,7 +61,7 @@ Input settings
 Output Format settings
 ---------------
 
-The desired output formats. You can enter more than one, simply configure them independantely::
+The desired output formats. You can enter more than one, simply configure them independantely:
 
 ::
 
@@ -119,7 +119,7 @@ Install Python packages
 Git hook
 --------
 
-Please install this git hook if you want to beautify your patch before submission::
+Please install this git hook if you want to beautify your patch before submission:
 
 ::
 
