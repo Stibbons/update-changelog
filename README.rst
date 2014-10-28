@@ -2,7 +2,7 @@
 update-changelog
 ================
 
-Changelog management application
+Changelog management script.
 
 Features
 ========
@@ -13,6 +13,13 @@ Features
   - one page reStructuredText file
   - one page MarkDown file
 - Able to update just the **new** changes, since last refresh
+
+Installation
+============
+
+.. code-block: bash
+
+  pip install update-changelog
 
 
 Advanced Feature (not yet planified)
