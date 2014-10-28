@@ -14,6 +14,7 @@ readme = os.path.join(os.path.dirname(__file__), 'README.rst')
 
 requires = [
     'unittest',
+    'argh',
 ]
 
 
