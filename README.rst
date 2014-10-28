@@ -64,9 +64,19 @@ Output settings
         changelog:
           ...
         default_rst:
+          ...
 
+For each format, use the following settings:
+
+``enable``
+  Boolean. Set to false to temporarily disable this output format.
+
+``filename``
+  Path to the file to generate/update, relative to the current path
+  
 ``template``
   You may want to personalize the template. These are jinja template files.
+
 
 
 Advanced Feature (not yet planified)
