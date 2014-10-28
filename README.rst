@@ -45,7 +45,7 @@ The configuration file ``.update-changelog.yml`` should be at the root of your p
 General settings
 ----------------
 
- ``name``
+ ``project_name``
    Name of your application
  
 Input settings
@@ -53,18 +53,16 @@ Input settings
  ``repository``
    ``.`` by default, meaning the current directory. If you use git, it will look for the root
   
-Output settings
+Output Format settings
 ---------------
 
-``formats``
-  The desired output formats. You can enter more than one, simply configure them independantely::
+The desired output formats. You can enter more than one, simply configure them independantely::
   
-    output:
-      formats:
-        changelog:
-          ...
-        default_rst:
-          ...
+    output_formats:
+      changelog:
+        ...
+      default_rst:
+        ...
 
 For each format, use the following settings:
 
@@ -72,11 +70,24 @@ For each format, use the following settings:
   Boolean. Set to false to temporarily disable this output format.
 
 ``filename``
-  Path to the file to generate/update, relative to the current path
+  Path to the file to generate/update, relative to the current path. Each template defines its default file name.
   
 ``template``
-  You may want to personalize the template. These are jinja template files.
+  You may want to personalize the template. These are jinja template files. 
+  If not provided, it will use the default one.
 
+
+Configuration Samples
+=====================
+
+::
+
+  general:
+    project_name: "Update Changelog"
+  
+  outputs:
+    changelog:
+      filepath: "./ChangeLog"
 
 
 Advanced Feature (not yet planified)
