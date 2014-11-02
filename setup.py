@@ -20,7 +20,7 @@ VERSION_MINOR = re.compile(r".*VERSION_MINOR = '(.*?)'", re.S).match(vc).group(1
 VERSION_BUILD = re.compile(r".*VERSION_BUILD = '(.*?)'", re.S).match(vc).group(1)
 v.close()
 
-print "VERSION_BUILD",VERSION_BUILD
+print "VERSION_BUILD", VERSION_BUILD
 
 
 readme = os.path.join(os.path.dirname(__file__), 'README.rst')
@@ -32,7 +32,7 @@ requires = [
 
 
 setup(name='updatechangelog',
-      version=VERSION,
+      version=VERSION_BUILD,
       description="Update Changelog from commit messages",
       long_description=open(readme).read(),
       classifiers=[
